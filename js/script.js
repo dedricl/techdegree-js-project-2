@@ -52,8 +52,11 @@ console.log(showPage(studentsList, 1));
 const appendPageLinks = list => {
   const numOfPages = list.length / itemsPerPage;
   const div = document.createElement('div');
+  const ul = document.createElement('ul');
+
   div.className = 'pagination';
   firstDiv.appendChild(div);
+  div.appendChild(ul);
 };
 
 appendPageLinks(studentsList);
