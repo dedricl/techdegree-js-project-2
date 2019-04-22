@@ -38,8 +38,10 @@ const showPage = (list, page) => {
   const endIndex =  page * itemsPerPage;
 
   for (let i = 0; i < list.length; i += 1) {
-    if ((i >= startIndex) && i <= endIndex) {
+    if ((i >= startIndex) && i < endIndex) {
         list[i].style.display = "block";
+    }else {
+      list[i].style.display = 'none';
     }
 
   }
@@ -57,7 +59,33 @@ const appendPageLinks = list => {
   div.className = 'pagination';
   firstDiv.appendChild(div);
   div.appendChild(ul);
+
+  for (let i = 0; i < numOfPages; i += 1) {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.textContent = i + 1;
+    link.href = '#';
+    ul.appendChild(li);
+    li.appendChild(link);
+    const activeLink = document.getElementsByTagName('a');
+    activeLink[0].className = "pagination";
+    link.addEventListener('click', (e) => {
+
+        for (let i = 0; i < activeLink.length; i += 1) {
+          activeLink[i].classList.remove('pagination');
+}
+          const event = e.target;
+          event.classList.add('pagination');
+
+          showPage(studentsList, link.textContent)
+
+
+
+    });
+  }
+
 };
 
 appendPageLinks(studentsList);
+
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
