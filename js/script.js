@@ -53,11 +53,12 @@ const appendPageLinks = list => {
     link.href = "#";
     ul.appendChild(li);
     li.appendChild(link);
+    const activeLink = document.getElementsByTagName("a");
+    activeLink[0].className = "active";
+
 
     //To add functionality the pagination buttons.
 
-    const activeLink = document.getElementsByTagName("a");
-    activeLink[0].className = "active";
 
     li.addEventListener("click", e => {
       for (let i = 0; i < activeLink.length; i += 1) {
