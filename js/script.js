@@ -15,7 +15,7 @@ const itemsPerPage = 10;
 
 
 // Create the `showPage` function to hide all of the items in the
-// list except for the ten you I to show on the current page.
+// list except for the ten you to show on the current page.
 
 
 
@@ -60,7 +60,7 @@ const appendPageLinks = list => {
     //To add functionality the pagination buttons.
 
 
-    li.addEventListener("click", e => {
+    link.addEventListener("click", e => {
       for (let i = 0; i < activeLink.length; i += 1) {
         activeLink[i].classList.remove("active");
       }
